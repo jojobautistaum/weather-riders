@@ -1,0 +1,13 @@
+body {
+
+}
+
+main {
+    border: 2px solid red;
+    text-align: center;
+}
+
+section {
+    border: 2px solid blue;
+    text-align: center;
+}
