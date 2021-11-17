@@ -5,9 +5,29 @@ body {
 main {
     border: 2px solid red;
     text-align: center;
+    font-size: 25px;
 }
 
 section {
     border: 2px solid blue;
     text-align: center;
+}
+
+button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 16px 70px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: white;
 }
