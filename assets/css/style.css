@@ -1,12 +1,9 @@
-@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"; 
 
-body {
-    background-color: gray;
-    height: 100vh;
-    text-align: center;
+:root {
+    --primary-color: red;
 }
 
-titl
 
 main {
     text-align: center;
@@ -16,26 +13,4 @@ main {
 section {
     text-align: center;
 }
-
-image {
-    justify-content: center;
-  }
-
-//*button {
-    background-color: black;
-    border: none;
-    color: white;
-    padding: 16px 70px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: white;
-    color: white;
-}*//
+ 
