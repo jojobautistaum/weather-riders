@@ -24,7 +24,6 @@ var getTransitApi = function() {
     })
 }
 
-
 // Find the city
 function findCity(city) {
     var locationUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=b7609117c1b58fc397022fe7414e5f44`;
