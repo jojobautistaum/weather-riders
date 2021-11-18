@@ -1,13 +1,16 @@
-body {
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"; 
 
+:root {
+    --primary-color: red;
 }
 
+
 main {
-    border: 2px solid red;
     text-align: center;
+    font-size: 25px;
 }
 
 section {
-    border: 2px solid blue;
     text-align: center;
 }
+ 
