@@ -72,33 +72,6 @@ function checkWeather (latitude, longitude) {
     });
 }
 
-    // click event for hiding and un-hiding location info
-var locationButton = $(".location-button");
-var backButton = $(".back-button");
-
-var getButtonPosition = function(buttonData) {
-    // returns ID tag for info related to button
-    return $("#info-" + buttonData);
-}
-
-locationButton.on("click", function(){
-    console.log("clicked");
-    $(".location-button").hide();
-    $(this).show();
-
-    var buttonData = $(this).attr('id');
-    var thisButtonInfo = getButtonPosition(buttonData);
-    $(thisButtonInfo).show();
-});
-
-backButton.on("click", function() {
-    $(".location-button").show();
-    $(".location-info").hide();
-
-})
-
-
-
 getTransitApi();
 
 findCity("Minneapolis");
