@@ -80,9 +80,9 @@ var getButtonPosition = function(buttonData) {
     // returns ID tag for info related to button
     return $("#info-" + buttonData);
 }
+
 // hiding other buttons and displaying thisButtonInfo
 locationButton.on("click", function(){
-    console.log("clicked");
     $(".location-button").hide();
     $(this).show();
 

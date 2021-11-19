@@ -16,5 +16,7 @@ section {
 .location-info {
     display:none;
 }
-
+.direction {
+    margin: 1.5rem;
+}
  
