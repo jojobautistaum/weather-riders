@@ -13,4 +13,12 @@ main {
 section {
     text-align: center;
 }
+
+.block:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.block {
+    margin-bottom: 1rem;
+}
  
