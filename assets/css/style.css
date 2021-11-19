@@ -12,4 +12,9 @@ main {
 section {
     text-align: center;
 }
+
+.location-info {
+    display:none;
+}
+
  
