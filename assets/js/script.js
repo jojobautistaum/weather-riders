@@ -11,6 +11,8 @@ var getTransitName = function(locationNumber, stopNumber) {
         document.querySelector("#l"+locationNumber).textContent =(data.StopLabel);
     })
 }
+
+// location number references the location's button number in the HTML. Direction number references the second HTML page. 0 for the left list of times and 1 for right list of times. Stop number is the stop ID in the API
 var getTransitApi = function(locationNumber, directionNumber, stopNumber) {
     var requestUrl = ('https://svc.metrotransit.org/NexTrip/' + stopNumber + '?format=json');
   
@@ -21,16 +23,20 @@ var getTransitApi = function(locationNumber, directionNumber, stopNumber) {
     .then(function(data) {
         //console.log(data);
         var routeInfo = function() {
-            document.querySelector(".route").textContent =(data[0].Route);
-            for(let i = 0; i < math.Min(3, data.length); i++) {
-                document.querySelector(".time-of-arrival-"+i).textContent =(data[i].DepartureText);
+            document.querySelector("#r"+locationNumber).textContent =(data[0].Route+ " Line");
+            for(let i = 0; i < data.length; i++) {
+                document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =(data[i].DepartureText);
             }
         }
         routeInfo();
     })
 }
 
-
+var consolidateTransit = function(locationNumber, stopNumber1, stopNumber2) {
+    getTransitName(locationNumber,stopNumber1);
+    getTransitApi(locationNumber,0,stopNumber1);
+    getTransitApi(locationNumber,1,stopNumber2);
+}
 
 
 // Find the city
@@ -107,20 +113,9 @@ backButton.on("click", function() {
 })
 
 
-getTransitName(1,56001);
-getTransitApi(1,1,56001);
-getTransitApi(1,256043);
-
-getTransitName(2,56002);
-getTransitApi(2,1,56002);
-getTransitApi(2,2,56042);
-
-getTransitName(3,56003);
-getTransitApi(3,1,56003);
-getTransitApi(3,2,56041);
-
-getTransitName(4,56004);
-getTransitApi(4,1,56004);
-getTransitApi(4,2,56040);
+consolidateTransit(1,56043,56001)
+consolidateTransit(2,56042,56002)
+consolidateTransit(3,56041,56003)
+consolidateTransit(4,56040,56004)
 
 findCity("Minneapolis");
