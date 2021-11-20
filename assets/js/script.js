@@ -57,6 +57,11 @@ function checkWeather (latitude, longitude) {
         if (response.ok) {
             response.json().then(function(data) {
                 var now = new Date(data.current.dt * 1000).toLocaleString("en-US",{month: "2-digit", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit"});
+                const icon = data.current.weather[0].icon;
+                const wicon = `https://openweathermap.org/img/w/${icon}.png`;
+
+                document.querySelector("#weather-image").src = wicon;
+                $("#weather-image").css("width", "70%");
                 document.querySelector(".weather-temperature").textContent = data.current.temp + " \xB0F";
                 document.querySelector(".weather-windchill").textContent = "Wind Chill: " + data.current.feels_like + " \xB0F";
                 document.querySelector(".weather-precipitation").textContent = "Chance of Precipitation: " + data.hourly[0].pop + " %";
