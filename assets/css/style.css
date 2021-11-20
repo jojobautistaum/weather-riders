@@ -4,7 +4,6 @@
     --primary-color: red;
 }
 
-
 main {
     text-align: center;
     font-size: 25px;
@@ -12,5 +11,12 @@ main {
 
 section {
     text-align: center;
+}
+
+.location-info {
+    display:none;
+}
+.direction {
+    margin: 1.5rem;
 }
  

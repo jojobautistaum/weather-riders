@@ -57,13 +57,15 @@ function checkWeather (latitude, longitude) {
         if (response.ok) {
             response.json().then(function(data) {
                 var now = new Date(data.current.dt * 1000).toLocaleString("en-US",{month: "2-digit", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit"});
-                console.log("Today:" + now);
-                console.log("Weather Icon: " + data.current.weather[0].icon);
-                console.log("Weather Description: " + data.current.weather[0].description);
-                console.log("Temperature: " + data.current.temp + " \xB0F");
-                console.log("Wind Speed: " + data.current.wind_speed);
-                console.log("Wind Chill: " + data.current.feels_like + " \xB0F");
-                console.log("Chance of Precipitation: " + data.hourly[0].pop);
+                const icon = data.current.weather[0].icon;
+                const wicon = `https://openweathermap.org/img/w/${icon}.png`;
+
+                document.querySelector("#weather-image").src = wicon;
+                $("#weather-image").css("width", "70%");
+                document.querySelector(".weather-temperature").textContent = data.current.temp + " \xB0F";
+                document.querySelector(".weather-windchill").textContent = "Wind Chill: " + data.current.feels_like + " \xB0F";
+                document.querySelector(".weather-precipitation").textContent = "Chance of Precipitation: " + data.hourly[0].pop + " %";
+                document.querySelector(".weather-time").textContent = now;
             });
         }
         else {
@@ -74,6 +76,33 @@ function checkWeather (latitude, longitude) {
         alert("Unable to connect to Open Weather. - " + error);
     });
 }
+
+    // click event for hiding and un-hiding location info
+var locationButton = $(".location-button");
+var backButton = $(".back-button");
+
+var getButtonPosition = function(buttonData) {
+    // returns ID tag for info related to button
+    return $("#info-" + buttonData);
+}
+
+// hiding other buttons and displaying thisButtonInfo
+locationButton.on("click", function(){
+    $(".location-button").hide();
+    $(this).show();
+
+    var buttonData = $(this).attr('id');
+    var thisButtonInfo = getButtonPosition(buttonData);
+    $(thisButtonInfo).show();
+});
+// returning you to the 4 button home page
+backButton.on("click", function() {
+    $(".location-button").show();
+    $(".location-info").hide();
+
+})
+
+
 
 getTransitApi();
 
