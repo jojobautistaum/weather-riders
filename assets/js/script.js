@@ -1,8 +1,18 @@
 var city = "Bloomington MN";
 
 
-var getTransitApi = function() {
-    var requestUrl = 'https://svc.metrotransit.org/NexTrip/11167?format=json';
+var getTransitName = function(locationNumber, stopNumber) {
+    var requestUrl = ('https://svc.metrotransit.org/NexTrip/StopID/' + stopNumber + '?format=json');
+  
+    fetch(requestUrl).then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        document.querySelector("#l"+locationNumber).textContent =(data.StopLabel);
+    })
+}
+var getTransitApi = function(locationNumber, stopNumber) {
+    var requestUrl = ('https://svc.metrotransit.org/NexTrip/' + stopNumber + '?format=json');
   
     fetch(requestUrl)
     .then(function(response) {
@@ -10,19 +20,18 @@ var getTransitApi = function() {
     })
     .then(function(data) {
         //console.log(data);
-        var routeInfo = function(arrayPosition) {
-            console.log("Location: "+data[arrayPosition].Description);
-            console.log("Route: "+data[arrayPosition].Route);
-            console.log("Direction: "+data[arrayPosition].RouteDirection);
-            for(let i = arrayPosition; i < data.length; i+=3) {
-                console.log("Time Remaining: "+data[i].DepartureText);
+        var routeInfo = function() {
+            document.querySelector(".route").textContent =(data[0].Route);
+            for(let i = 0; i < math.Min(3, data.length); i++) {
+                document.querySelector(".time-of-arrival-"+i).textContent =(data[i].DepartureText);
             }
         }
-        routeInfo(0);
-        routeInfo(1);
-        routeInfo(2);
+        routeInfo();
     })
 }
+
+
+
 
 // Find the city
 function findCity(city) {
@@ -98,7 +107,20 @@ backButton.on("click", function() {
 })
 
 
+getTransitName(1,56001);
+getTransitApi(1,1,56001);
+getTransitApi(1,256043);
 
-getTransitApi();
+getTransitName(2,56002);
+getTransitApi(2,1,56002);
+getTransitApi(2,2,56042);
+
+getTransitName(3,56003);
+getTransitApi(3,1,56003);
+getTransitApi(3,2,56041);
+
+getTransitName(4,56004);
+getTransitApi(4,1,56004);
+getTransitApi(4,2,56040);
 
 findCity("Minneapolis");
