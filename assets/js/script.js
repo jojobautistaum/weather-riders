@@ -11,7 +11,7 @@ var getTransitName = function(locationNumber, stopNumber) {
         document.querySelector("#l"+locationNumber).textContent =(data.StopLabel);
     })
 }
-var getTransitApi = function(locationNumber, stopNumber) {
+var getTransitApi = function(locationNumber, directionNumber, stopNumber) {
     var requestUrl = ('https://svc.metrotransit.org/NexTrip/' + stopNumber + '?format=json');
   
     fetch(requestUrl)
