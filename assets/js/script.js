@@ -1,8 +1,20 @@
 var city = "Bloomington MN";
+var now = "";
 
+var getTransitName = function(locationNumber, stopNumber) {
+    var requestUrl = ('https://svc.metrotransit.org/NexTrip/StopID/' + stopNumber + '?format=json');
+  
+    fetch(requestUrl).then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        document.querySelector("#l"+locationNumber).textContent =(data.StopLabel);
+    })
+}
 
-var getTransitApi = function() {
-    var requestUrl = 'https://svc.metrotransit.org/NexTrip/11167?format=json';
+// location number references the location's button number in the HTML. Direction number references the second HTML page. 0 for the left list of times and 1 for right list of times. Stop number is the stop ID in the API
+var getTransitApi = function(locationNumber, directionNumber, stopNumber) {
+    var requestUrl = ('https://svc.metrotransit.org/NexTrip/' + stopNumber + '?format=json');
   
     fetch(requestUrl)
     .then(function(response) {
@@ -10,19 +22,34 @@ var getTransitApi = function() {
     })
     .then(function(data) {
         //console.log(data);
-        var routeInfo = function(arrayPosition) {
-            console.log("Location: "+data[arrayPosition].Description);
-            console.log("Route: "+data[arrayPosition].Route);
-            console.log("Direction: "+data[arrayPosition].RouteDirection);
-            for(let i = arrayPosition; i < data.length; i+=3) {
-                console.log("Time Remaining: "+data[i].DepartureText);
+        var routeInfo = function() {
+            document.querySelector("#r"+locationNumber).textContent =(data[0].Route+ " Line");
+            for(let i = 0; i < Math.min(3,data.length); i++) {
+                var APString = ""
+                // var ApFunction = function(departureText) {
+                //     if (data[i].DepartureText.includes(":")) {
+                //         if (now.includes("AM")) {
+                //             APString = 'AM';
+                //         }
+                //         else {
+                //             APString = 'PM';
+                //         }
+                //     }
+                // }
+                // ApFunction(data[i].DepartureText);
+                document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =("Arrival time: "+data[i].DepartureText+APString);
             }
         }
-        routeInfo(0);
-        routeInfo(1);
-        routeInfo(2);
+        routeInfo();
     })
 }
+
+var consolidateTransit = function(locationNumber, stopNumber1, stopNumber2) {
+    getTransitName(locationNumber,stopNumber1);
+    getTransitApi(locationNumber,0,stopNumber1);
+    getTransitApi(locationNumber,1,stopNumber2);
+}
+
 
 // Find the city
 function findCity(city) {
@@ -104,6 +131,9 @@ backButton.on("click", function() {
 
 
 
-getTransitApi();
 
 findCity("Minneapolis");
+consolidateTransit(1,56043,56001);
+consolidateTransit(2,56042,56002);
+consolidateTransit(3,56041,56003);
+consolidateTransit(4,56040,56004);
