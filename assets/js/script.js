@@ -1,5 +1,5 @@
 var city = "Bloomington MN";
-
+var now = "";
 
 var getTransitName = function(locationNumber, stopNumber) {
     var requestUrl = ('https://svc.metrotransit.org/NexTrip/StopID/' + stopNumber + '?format=json');
@@ -24,8 +24,20 @@ var getTransitApi = function(locationNumber, directionNumber, stopNumber) {
         //console.log(data);
         var routeInfo = function() {
             document.querySelector("#r"+locationNumber).textContent =(data[0].Route+ " Line");
-            for(let i = 0; i < data.length; i++) {
-                document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =(data[i].DepartureText);
+            for(let i = 0; i < Math.min(3,data.length); i++) {
+                var APString = ""
+                // var ApFunction = function(departureText) {
+                //     if (data[i].DepartureText.includes(":")) {
+                //         if (now.includes("AM")) {
+                //             APString = 'AM';
+                //         }
+                //         else {
+                //             APString = 'PM';
+                //         }
+                //     }
+                // }
+                // ApFunction(data[i].DepartureText);
+                document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =("Arrival time: "+data[i].DepartureText+APString);
             }
         }
         routeInfo();
@@ -118,9 +130,10 @@ backButton.on("click", function() {
 })
 
 
-consolidateTransit(1,56043,56001)
-consolidateTransit(2,56042,56002)
-consolidateTransit(3,56041,56003)
-consolidateTransit(4,56040,56004)
+
 
 findCity("Minneapolis");
+consolidateTransit(1,56043,56001);
+consolidateTransit(2,56042,56002);
+consolidateTransit(3,56041,56003);
+consolidateTransit(4,56040,56004);
