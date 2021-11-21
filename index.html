@@ -12,7 +12,7 @@
     <container class = "column is-half is-offset-one-quarter level">
         <main class = "container block">
             <figure class = "column is-half is-offset-one-quarter level container is-centered">
-                <img src="https://bulma.io/images/placeholders/128x128.png">
+                <img id= "weather-image" src="https://bulma.io/images/placeholders/128x128.png">
             </figure>
             <div>
                 <h1 class = "weather-temperature title is-1">Temperature</h1>
@@ -25,8 +25,6 @@
             </div>
 
         </main>
-
-               
             <!-- TODO: refactor code to make all of these buttons and location-info cards dynamically generated -->
             <!-- TODO: change all <a> tags into buttons that simply undo the locationButton hide function -->
             <!-- ** REFORMAT 2-4 LIKE THE FORMAT OF 1-->
@@ -45,20 +43,22 @@
                             <div class="content route" id="r1">
                             <strong>route 1</strong>
                             </div>
-                                <div class="level card block">
-                                    <div class="container content direction block" >
+                                <div class="level card">
+                                    <div class="container content direction " >
                                         <u>West-Bound</u> 
                                         <p id = "time-of-arrival-0">time of arrival 1</p>
                                         <p id = "time-of-arrival-1">time of arrival 2</p>
                                         <p id = "time-of-arrival-2">time of arrival 3</p>
                                     </div>
 
-                                    <div class="container content direction block ">
+                                    <div class="container content direction ">
                                         <u>East-Bound</u> 
                                         <p id = "time-of-arrival-3">time of arrival 1</p>
                                         <p id = "time-of-arrival-4">time of arrival 2</p>
                                         <p id = "time-of-arrival-5">time of arrival 3</p>
                                     </div>
+                                    <!-- last div is fixing block class margin 
+                                    <div></div> -->
                                 </div>
                         </div>
                         <button class="back-button card-footer-item button is-medium is-fullwidth is-danger">Back</button>
@@ -79,14 +79,14 @@
                             <strong>route 2</strong>
                             </div>
                                 <div class="level card block">
-                                    <div class="container content direction  block" >
+                                    <div class="container content direction " >
                                         <u>West-Bound</u> 
                                         <p id = "time-of-arrival-6">time of arrival 1</p>
                                         <p id = "time-of-arrival-7">time of arrival 2</p>
                                         <p id = "time-of-arrival-8">time of arrival 3</p>
                                     </div>
 
-                                    <div class="container content direction  block ">
+                                    <div class="container content direction ">
                                         <u>East-Bound</u> 
                                         <p id = "time-of-arrival-9">time of arrival 1</p>
                                         <p id = "time-of-arrival-10">time of arrival 2</p>
@@ -113,14 +113,14 @@
                             <strong>route 3</strong>
                             </div>
                                 <div class="level card block">
-                                    <div class="container content direction  block" >
+                                    <div class="container content direction" >
                                         <u>West-Bound</u> 
                                         <p id = "time-of-arrival-12">time of arrival 1</p>
                                         <p id = "time-of-arrival-13">time of arrival 2</p>
                                         <p id = "time-of-arrival-14">time of arrival 3</p>
                                     </div>
 
-                                    <div class="container content direction  block ">
+                                    <div class="container content direction ">
                                         <u>East-Bound</u> 
                                         <p id = "time-of-arrival-15">time of arrival 1</p>
                                         <p id = "time-of-arrival-16">time of arrival 2</p>
@@ -147,14 +147,14 @@
                             <strong>route 4</strong>
                             </div>
                                 <div class="level card block">
-                                    <div class="container content direction  block" >
+                                    <div class="container content direction" >
                                         <u>West-Bound</u> 
                                         <p id = "time-of-arrival-18">time of arrival 1</p>
                                         <p id = "time-of-arrival-19">time of arrival 2</p>
                                         <p id = "time-of-arrival-20">time of arrival 3</p>
                                     </div>
 
-                                    <div class="container content direction  block ">
+                                    <div class="container content direction ">
                                         <u>East-Bound</u> 
                                         <p id = "time-of-arrival-21">time of arrival 1</p>
                                         <p id = "time-of-arrival-22">time of arrival 2</p>

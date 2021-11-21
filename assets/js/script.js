@@ -1,5 +1,5 @@
 var city = "Bloomington MN";
-
+var now = "";
 
 var getTransitName = function(locationNumber, stopNumber) {
     var requestUrl = ('https://svc.metrotransit.org/NexTrip/StopID/' + stopNumber + '?format=json');
@@ -24,8 +24,20 @@ var getTransitApi = function(locationNumber, directionNumber, stopNumber) {
         //console.log(data);
         var routeInfo = function() {
             document.querySelector("#r"+locationNumber).textContent =(data[0].Route+ " Line");
-            for(let i = 0; i < data.length; i++) {
-                document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =(data[i].DepartureText);
+            for(let i = 0; i < Math.min(3,data.length); i++) {
+                var APString = ""
+                // var ApFunction = function(departureText) {
+                //     if (data[i].DepartureText.includes(":")) {
+                //         if (now.includes("AM")) {
+                //             APString = 'AM';
+                //         }
+                //         else {
+                //             APString = 'PM';
+                //         }
+                //     }
+                // }
+                // ApFunction(data[i].DepartureText);
+                document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =("Arrival time: "+data[i].DepartureText+APString);
             }
         }
         routeInfo();
@@ -72,6 +84,11 @@ function checkWeather (latitude, longitude) {
         if (response.ok) {
             response.json().then(function(data) {
                 var now = new Date(data.current.dt * 1000).toLocaleString("en-US",{month: "2-digit", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit"});
+                const icon = data.current.weather[0].icon;
+                const wicon = `https://openweathermap.org/img/w/${icon}.png`;
+
+                document.querySelector("#weather-image").src = wicon;
+                $("#weather-image").css("width", "70%");
                 document.querySelector(".weather-temperature").textContent = data.current.temp + " \xB0F";
                 document.querySelector(".weather-windchill").textContent = "Wind Chill: " + data.current.feels_like + " \xB0F";
                 document.querySelector(".weather-precipitation").textContent = "Chance of Precipitation: " + data.hourly[0].pop + " %";
@@ -95,9 +112,9 @@ var getButtonPosition = function(buttonData) {
     // returns ID tag for info related to button
     return $("#info-" + buttonData);
 }
+
 // hiding other buttons and displaying thisButtonInfo
 locationButton.on("click", function(){
-    console.log("clicked");
     $(".location-button").hide();
     $(this).show();
 
@@ -113,9 +130,10 @@ backButton.on("click", function() {
 })
 
 
-consolidateTransit(1,56043,56001)
-consolidateTransit(2,56042,56002)
-consolidateTransit(3,56041,56003)
-consolidateTransit(4,56040,56004)
+
 
 findCity("Minneapolis");
+consolidateTransit(1,56043,56001);
+consolidateTransit(2,56042,56002);
+consolidateTransit(3,56041,56003);
+consolidateTransit(4,56040,56004);
