@@ -59,8 +59,7 @@ function findCity(city) {
         if (response.ok) {
             response.json().then(function(data) {
                 if(data.length){
-                    console.log("Latitude: " + data[0].lat);
-                    console.log("Longitude: " + data[0].lon);
+                    // Pull weather info using the latitude and longitude here
                     checkWeather(data[0].lat, data[0].lon);
                 } else {
                     alert("The city location is unknown: " + city);
@@ -86,7 +85,7 @@ function checkWeather (latitude, longitude) {
                 var now = new Date(data.current.dt * 1000).toLocaleString("en-US",{month: "2-digit", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit"});
                 const icon = data.current.weather[0].icon;
                 const wicon = `https://openweathermap.org/img/w/${icon}.png`;
-
+                // Populate our weather information
                 document.querySelector("#weather-image").src = wicon;
                 $("#weather-image").css("width", "50%");
                 document.querySelector(".weather-temperature").textContent = data.current.temp + " \xB0F";
