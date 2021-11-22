@@ -23,7 +23,7 @@ var getTransitApi = function(locationNumber, directionNumber, stopNumber) {
     .then(function(data) {
         //console.log(data);
         var routeInfo = function() {
-            document.querySelector("#r"+locationNumber).textContent =(data[0].Route+ " Line");
+            // document.querySelector("#r"+locationNumber).textContent =(data[0].Route+ " Line");
             for(let i = 0; i < Math.min(3,data.length); i++) {
                 var APString = ""
                 // var ApFunction = function(departureText) {
@@ -88,7 +88,7 @@ function checkWeather (latitude, longitude) {
                 const wicon = `https://openweathermap.org/img/w/${icon}.png`;
 
                 document.querySelector("#weather-image").src = wicon;
-                $("#weather-image").css("width", "70%");
+                $("#weather-image").css("width", "50%");
                 document.querySelector(".weather-temperature").textContent = data.current.temp + " \xB0F";
                 document.querySelector(".weather-windchill").textContent = "Wind Chill: " + data.current.feels_like + " \xB0F";
                 document.querySelector(".weather-precipitation").textContent = "Chance of Precipitation: " + data.hourly[0].pop + " %";

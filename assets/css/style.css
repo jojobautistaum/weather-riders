@@ -1,21 +1,43 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"; 
 
-
-:root {
-    --primary-color: red;
-}
 html {
     height: 100%;
   }
+  
   body {
+      background-color:#7a0019 ;
     min-height: 100%;
+    /* background-image: url("https://cdn.shopify.com/s/files/1/0589/4041/files/Goldy_Gopher_Logo1_-_JPG.jpg?v=1545607513"); */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: transparent;
   } 
+  .button.is-warning {
+    background-color: #fc3;
+  }
+
+.navbar-item {
+  color:#fc3;
+  font-size:1.5rem ;
+  }
+
+nav {
+    background-color: #7a0019;
+}
+.navbar{
+    background-color:#7a0019;
+}
 
 main {
     text-align: center;
     font-size: 25px;
 }
-
+.crimson {
+    color: #7a0019;
+}
+.yellow {
+    color:#fc3;
+}
 section {
     text-align: center;
 }
