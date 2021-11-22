@@ -23,17 +23,18 @@ var getTransitApi = function(locationNumber, directionNumber, stopNumber) {
         var routeInfo = function() {
             // document.querySelector("#r"+locationNumber).textContent =(data[0].Route+ " Line");
             for(let i = 0; i < Math.min(3,data.length); i++) {
-                var ApFunction = function(departureText) {
-                    if (data[i].DepartureText.includes(":")) {
+                var ApFunction = function() {
+                    if ((i == 0 && data[i].DepartureText.includes("Min") ) || (i == 1 && data[i].DepartureText.includes("Min") && data[i-1].DepartureText.includes("Min"))) { 
+                        document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =(data[i].DepartureText);
+                    }
+                    else  {
                         var epocheArrival = data[i].DepartureTime.slice(6,data[i].DepartureTime.length-7);
                         var CSTArrival = new Date(epocheArrival *1).toLocaleString('en-US', {hour: "2-digit", minute: "2-digit"});
                         document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =(CSTArrival);
                     }
-                    else { 
-                        document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =(data[i].DepartureText);
-                    }
+                    
                 }
-                ApFunction(data[i].DepartureText);
+                ApFunction();
             }
         }
         routeInfo();
