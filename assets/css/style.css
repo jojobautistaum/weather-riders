@@ -1,8 +1,15 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"; 
 
+
 :root {
     --primary-color: red;
 }
+html {
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+  } 
 
 main {
     text-align: center;
@@ -20,4 +27,5 @@ section {
     margin: 1.5rem;
 }
  
+
 
