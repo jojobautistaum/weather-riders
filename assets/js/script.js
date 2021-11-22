@@ -117,6 +117,9 @@ var getButtonPosition = function(buttonData) {
 locationButton.on("click", function(){
     $(".location-button").hide();
     $(this).show();
+    // Removing Bulma classes to display full screen upon click
+    $(".remClassTop").removeClass("level container column is-four-fifths").addClass("column is-full is-offset-one-half level");
+    $(".remClassBottom").removeClass("columns is-full is-offset-two-fifth").addClass("column is-full is-offset-one-half level");
 
     var buttonData = $(this).attr('id');
     var thisButtonInfo = getButtonPosition(buttonData);
@@ -126,6 +129,10 @@ locationButton.on("click", function(){
 backButton.on("click", function() {
     $(".location-button").show();
     $(".location-info").hide();
+        // Removing Bulma classes to original orientation upon click
+    $(".remClassTop").removeClass("column is-full is-offset-one-half level").addClass("level container column is-four-fifths");
+    $(".remClassBottom").removeClass("column is-full is-offset-one-half level").addClass("columns is-full is-offset-two-fifth");
+
 
 })
 

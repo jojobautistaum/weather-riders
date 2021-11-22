@@ -48,6 +48,10 @@ section {
 .direction {
     margin: 1.5rem;
 }
+
+.no-block-margin {
+    margin-bottom: 0rem;
+}
  
 
 
