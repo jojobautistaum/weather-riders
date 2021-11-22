@@ -1,5 +1,4 @@
 var city = "Bloomington MN";
-var now = "";
 
 var getTransitName = function(locationNumber, stopNumber) {
     var requestUrl = ('https://svc.metrotransit.org/NexTrip/StopID/' + stopNumber + '?format=json');
@@ -21,23 +20,20 @@ var getTransitApi = function(locationNumber, directionNumber, stopNumber) {
         return response.json();
     })
     .then(function(data) {
-        //console.log(data);
         var routeInfo = function() {
             document.querySelector("#r"+locationNumber).textContent =(data[0].Route+ " Line");
             for(let i = 0; i < Math.min(3,data.length); i++) {
-                var APString = ""
-                // var ApFunction = function(departureText) {
-                //     if (data[i].DepartureText.includes(":")) {
-                //         if (now.includes("AM")) {
-                //             APString = 'AM';
-                //         }
-                //         else {
-                //             APString = 'PM';
-                //         }
-                //     }
-                // }
-                // ApFunction(data[i].DepartureText);
-                document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =("Arrival time: "+data[i].DepartureText+APString);
+                var ApFunction = function(departureText) {
+                    if (data[i].DepartureText.includes(":")) {
+                        var epocheArrival = data[i].DepartureTime.slice(6,data[i].DepartureTime.length-7);
+                        var CSTArrival = new Date(epocheArrival *1).toLocaleString('en-US', {hour: "2-digit", minute: "2-digit"});
+                        document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =(CSTArrival);
+                    }
+                    else { 
+                        document.querySelector("#time-of-arrival-"+(i+(directionNumber*3)+((locationNumber-1)*6))).textContent =(data[i].DepartureText);
+                    }
+                }
+                ApFunction(data[i].DepartureText);
             }
         }
         routeInfo();
