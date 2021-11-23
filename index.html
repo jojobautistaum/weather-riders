@@ -7,37 +7,190 @@
     <title>Weather Riders</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-<body class = "column is-half is-offset-one-quarter level">
-    <main class = "container ">
-        <div class = "level container is-centered is-flex">
-            <img class= " level-item image is-128x128">
+
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://twin-cities.umn.edu/">
+            <img src="https://university-relations.umn.edu/sites/university-relations.umn.edu/files/m-static_0.png" >
+          </a>
+        <p class ="navbar-item is-warning"> WeatherRiders</p>
         </div>
-        <div>
-            <h1 class = "title is-1">Temperature</h1>
+    </nav>
+
+    <container class = "column is-half is-offset-one-quarter level">
+        <main class = "container block">
+            <figure class = "column is-half is-offset-one-quarter level container is-centered">
+                <img id= "weather-image" src="https://bulma.io/images/placeholders/64x64.png">
+            </figure>
+            <div>
+                <h1 class = "yellow weather-temperature title is-1">Temperature</h1>
+            </div>
+            <!-- Weather and time title text -->
+            <div>
+                <p class="yellow weather-windchill">Windchill</p>
+                <p class="yellow weather-precipitation">Precipitation</p>
+                <p class="yellow weather-time">Time</p>
+            </div>
+
+        </main>
+            <!-- TODO: refactor code to make all of these buttons and location-info cards dynamically generated -->
+                   
+    </container>
+     <!-- location buttons & hidden info-->
+    <section class = "level container column is-four-fifths remClassTop">
+        <!-- location sections -->
+        <div class="columns is-full-mobile is-full-desktop is-offset-two-fifth remClassBottom">
+
+            <div class="one-two column">
+
+                
+            <section id = "location-1-all">
+                    <!-- button 1 -->
+                <div id ="location-1" class = "block">
+                    <button class = "location-button button is-medium is-fullwidth is-warning" id="l1">Location 1</button>
+                </div>
+                    <!-- hidden info 1 -->
+                <div id = "info-l1" class="location-info block container">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content route" id="r1">
+                            <strong>Departure Times</strong>
+                            </div>
+                                <div class="level card">
+                                    <div class="container content direction " >
+                                        <u>West-Bound</u> 
+                                        <p id = "time-of-arrival-0">time of arrival 1</p>
+                                        <p id = "time-of-arrival-1">time of arrival 2</p>
+                                        <p id = "time-of-arrival-2">time of arrival 3</p>
+                                    </div>
+
+                                    <div class="container content direction ">
+                                        <u>East-Bound</u> 
+                                        <p id = "time-of-arrival-3">time of arrival 1</p>
+                                        <p id = "time-of-arrival-4">time of arrival 2</p>
+                                        <p id = "time-of-arrival-5">time of arrival 3</p>
+                                    </div>
+                                </div>
+                        </div>
+                        <button class="back-button card-footer-item button is-medium is-fullwidth is-warning">Back</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="location-2-all">
+                    <!-- button 2 -->
+                <div id ="location-2" class = "block">
+                    <button class= "location-button button is-medium is-fullwidth is-warning" id="l2">Location 2</button>
+                </div>
+                    <!-- hidden info  -->
+                <div id = "info-l2" class="location-info block container">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content route" id="r2">
+                            <strong>Departure Times</strong>
+                            </div>
+                                <div class="level card block">
+                                    <div class="container content direction " >
+                                        <u>West-Bound</u> 
+                                        <p id = "time-of-arrival-6">time of arrival 1</p>
+                                        <p id = "time-of-arrival-7">time of arrival 2</p>
+                                        <p id = "time-of-arrival-8">time of arrival 3</p>
+                                    </div>
+
+                                    <div class="container content direction ">
+                                        <u>East-Bound</u> 
+                                        <p id = "time-of-arrival-9">time of arrival 1</p>
+                                        <p id = "time-of-arrival-10">time of arrival 2</p>
+                                        <p id = "time-of-arrival-11">time of arrival 3</p>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <button class="back-button card-footer-item button is-medium is-fullwidth is-warning">Back</button>
+                    </div>
+                </div>
+            </section>
+            </div>
+            <div class="three-four column">
+
+
+            <section id="location-3-all">
+                    <!-- button 3 -->
+                <div id ="location-3" class = "block">
+                    <button class= "location-button button is-medium is-fullwidth is-warning" id="l3">Location 3</button>
+                </div>
+                    <!-- hidden info 3 -->
+                <div id = "info-l3" class="location-info block container">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content route" id="r3">
+                            <strong>Departure Times</strong>
+                            </div>
+                                <div class="level card block">
+                                    <div class="container content direction" >
+                                        <u>West-Bound</u> 
+                                        <p id = "time-of-arrival-12">time of arrival 1</p>
+                                        <p id = "time-of-arrival-13">time of arrival 2</p>
+                                        <p id = "time-of-arrival-14">time of arrival 3</p>
+                                    </div>
+
+                                    <div class="container content direction ">
+                                        <u>East-Bound</u> 
+                                        <p id = "time-of-arrival-15">time of arrival 1</p>
+                                        <p id = "time-of-arrival-16">time of arrival 2</p>
+                                        <p id = "time-of-arrival-17">time of arrival 3</p>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <button class="back-button card-footer-item button is-medium is-fullwidth is-warning">Back</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="location-4-all">
+                    <!-- button 3 -->
+                <div id ="location-4" class = "block">
+                    <button class= "location-button button is-medium is-fullwidth is-warning" id="l4">Location 4</button>
+                </div>
+                    <!-- hidden info 4 -->
+                <div id = "info-l4" class="location-info block container">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content route" id="r4">
+                            <strong>Departure Times</strong>
+                            </div>
+                                <div class="level card block">
+                                    <div class="container content direction" >
+                                        <u>West-Bound</u> 
+                                        <p id = "time-of-arrival-18">time of arrival 1</p>
+                                        <p id = "time-of-arrival-19">time of arrival 2</p>
+                                        <p id = "time-of-arrival-20">time of arrival 3</p>
+                                    </div>
+
+                                    <div class="container content direction ">
+                                        <u>East-Bound</u> 
+                                        <p id = "time-of-arrival-21">time of arrival 1</p>
+                                        <p id = "time-of-arrival-22">time of arrival 2</p>
+                                        <p id = "time-of-arrival-23">time of arrival 3</p>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <button class="back-button card-footer-item button is-medium is-fullwidth is-warning">Back</button>
+                    </div>
+                </div>
+            </section>
+            </div>
         </div>
-        <div>
-            <p>Windchill</p>
-            <p class>Time</p>
-
-        </div>
-    </main>
-
-    <section class = "container">
-        <div class = "block" ><button class = "button is-medium is-fullwidth is-success is-outlined ">Location 1</button></div>
-
-        <div class = "block"><button class= "button is-medium is-fullwidth is-success is-outlined ">Location 2</button></div>
-
-        <div class = "block"><button class= "button is-medium is-fullwidth is-success is-outlined " >Location 3</button></div>
-
-        <div class = "block"><button class= "button is-medium is-fullwidth is-success is-outlined ">Location 4</button></div>
-
-        <div class = "block"><button class= "button is-medium is-fullwidth is-success is-outlined ">Location 5</button></div>
-
-        <div class = "block"><button class= "button is-medium is-fullwidth is-success is-outlined ">Location 6</button></div>
-
-        <div class = "block"><button class= "button is-medium is-fullwidth is-success is-outlined ">Location 7</button></div>
-
-        <div class = "block"><button class= "button is-medium is-fullwidth is-success is-outlined ">Location 8</button></div>
     </section>
+   
+    <!-- jquery links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
