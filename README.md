@@ -1,7 +1,7 @@
 # Weather Riders
 
 ## Description
-Weather Riders is a website that tracks campus green line stops by giving you the time of arrival and where its heading. The website also gives additional information like the weather and current time. Weather Riders was created to help mostly UMN Students track transportation.
+Weather Riders is a website that tracks campus green line stops by giving you the time of arrival. The website also gives additional information like the weather and current time. Weather Riders was created to help mostly UMN Students track transportation.
 
 
 
@@ -14,7 +14,7 @@ Weather Riders is a website that tracks campus green line stops by giving you th
 * Weather API
 
 ## Website
-
+https://jojobautistaum.github.io/weather-riders/
 
 ## Contribution
 Made by 
