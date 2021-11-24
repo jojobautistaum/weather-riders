@@ -61,7 +61,7 @@ function checkWeather (latitude, longitude) {
                 const wicon = `https://openweathermap.org/img/w/${icon}.png`;
 
                 document.querySelector("#weather-image").src = wicon;
-                $("#weather-image").css("width", "70%");
+                $("#weather-image").css("width", "60%");
                 document.querySelector(".weather-temperature").textContent = data.current.temp + " \xB0F";
                 document.querySelector(".weather-windchill").textContent = "Wind Chill: " + data.current.feels_like + " \xB0F";
                 document.querySelector(".weather-precipitation").textContent = "Chance of Precipitation: " + data.hourly[0].pop + " %";
