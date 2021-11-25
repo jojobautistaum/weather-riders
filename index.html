@@ -8,60 +8,73 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
+
 <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://twin-cities.umn.edu/">
+            <img src="https://university-relations.umn.edu/sites/university-relations.umn.edu/files/m-static_0.png" >
+          </a>
+        <p class ="navbar-item is-warning"> WeatherRiders</p>
+        </div>
+    </nav>
+
     <container class = "column is-half is-offset-one-quarter level">
         <main class = "container block">
             <figure class = "column is-half is-offset-one-quarter level container is-centered">
-                <img id= "weather-image" src="https://bulma.io/images/placeholders/128x128.png">
+                <img id="weather-image" src="https://bulma.io/images/placeholders/64x64.png">
             </figure>
             <div>
-                <h1 class = "weather-temperature title is-1">Temperature</h1>
+                <h1 class = "yellow weather-temperature title is-1">Temperature</h1>
             </div>
             <!-- Weather and time title text -->
             <div>
-                <p class="weather-windchill">Windchill</p>
-                <p class="weather-precipitation">Precipitation</p>
-                <p class="weather-time">Time</p>
+                <p class="yellow weather-windchill">Windchill</p>
+                <p class="yellow weather-precipitation">Precipitation</p>
+                <p class="yellow weather-time">Time</p>
             </div>
 
         </main>
-
-               
             <!-- TODO: refactor code to make all of these buttons and location-info cards dynamically generated -->
-            <!-- TODO: change all <a> tags into buttons that simply undo the locationButton hide function -->
-            <!-- ** REFORMAT 2-4 LIKE THE FORMAT OF 1-->
-                    <!-- location buttons & hidden info-->
-        <section class = "container">
-                    <!-- location sections -->
+                   
+    </container>
+     <!-- location buttons & hidden info-->
+    <section class = "level container column is-four-fifths remClassTop">
+        <!-- location sections -->
+        <div class="columns is-full-mobile is-full-desktop is-offset-two-fifth remClassBottom">
+
+            <div class="one-two column">
+
+                
             <section id = "location-1-all">
                     <!-- button 1 -->
                 <div id ="location-1" class = "block">
-                    <button class = "location-button button is-medium is-fullwidth is-success is-outlined" id="1">Location 1</button>
+                    <button class = "location-button button is-medium is-fullwidth is-warning" id="l1">Location 1</button>
                 </div>
                     <!-- hidden info 1 -->
-                <div id = "info-1" class="location-info block container">
+                <div id = "info-l1" class="location-info block container">
                     <div class="card">
                         <div class="card-content">
-                            <div class="content route">
-                            <strong>route 1</strong>
+                            <div class="content route" id="r1">
+                            <strong>Departure Times</strong>
                             </div>
-                                <div class="level card block">
-                                    <div class="container content direction block" >
+                                <div class="level card">
+                                    <div class="container content direction " >
                                         <u>West-Bound</u> 
-                                        <p class = "time of arrival">time of arrival 1</p>
-                                        <p class = "time of arrival">time of arrival 2</p>
-                                        <p class = "time of arrival">time of arrival 3</p>
+                                        <p id = "time-of-arrival-0">time of arrival 1</p>
+                                        <p id = "time-of-arrival-1">time of arrival 2</p>
+                                        <p id = "time-of-arrival-2">time of arrival 3</p>
                                     </div>
 
-                                    <div class="container content direction block ">
+                                    <div class="container content direction ">
                                         <u>East-Bound</u> 
-                                        <p class = "time of arrival">time of arrival 1</p>
-                                        <p class = "time of arrival">time of arrival 2</p>
-                                        <p class = "time of arrival">time of arrival 3</p>
+                                        <p id = "time-of-arrival-3">time of arrival 1</p>
+                                        <p id = "time-of-arrival-4">time of arrival 2</p>
+                                        <p id = "time-of-arrival-5">time of arrival 3</p>
                                     </div>
                                 </div>
                         </div>
-                        <button class="back-button card-footer-item button is-medium is-fullwidth is-danger">Back</button>
+                        <button class="back-button card-footer-item button is-medium is-fullwidth is-warning">Back</button>
                     </div>
                 </div>
             </section>
@@ -69,67 +82,70 @@
             <section id="location-2-all">
                     <!-- button 2 -->
                 <div id ="location-2" class = "block">
-                    <button class= "location-button button is-medium is-fullwidth is-success is-outlined" id="2">Location 2</button>
+                    <button class= "location-button button is-medium is-fullwidth is-warning" id="l2">Location 2</button>
                 </div>
                     <!-- hidden info  -->
-                <div id = "info-2" class="location-info block container">
+                <div id = "info-l2" class="location-info block container">
                     <div class="card">
                         <div class="card-content">
-                            <div class="content route">
-                            <strong>route 2</strong>
+                            <div class="content route" id="r2">
+                            <strong>Departure Times</strong>
                             </div>
                                 <div class="level card block">
-                                    <div class="container content direction  block" >
+                                    <div class="container content direction " >
                                         <u>West-Bound</u> 
-                                        <p class = "time of arrival">time of arrival 1</p>
-                                        <p class = "time of arrival">time of arrival 2</p>
-                                        <p class = "time of arrival">time of arrival 3</p>
+                                        <p id = "time-of-arrival-6">time of arrival 1</p>
+                                        <p id = "time-of-arrival-7">time of arrival 2</p>
+                                        <p id = "time-of-arrival-8">time of arrival 3</p>
                                     </div>
 
-                                    <div class="container content direction  block ">
+                                    <div class="container content direction ">
                                         <u>East-Bound</u> 
-                                        <p class = "time of arrival">time of arrival 1</p>
-                                        <p class = "time of arrival">time of arrival 2</p>
-                                        <p class = "time of arrival">time of arrival 3</p>
+                                        <p id = "time-of-arrival-9">time of arrival 1</p>
+                                        <p id = "time-of-arrival-10">time of arrival 2</p>
+                                        <p id = "time-of-arrival-11">time of arrival 3</p>
                                     </div>
                                 </div>
                         </div>
 
-                        <button class="back-button card-footer-item button is-medium is-fullwidth is-danger ">Back</button>
+                        <button class="back-button card-footer-item button is-medium is-fullwidth is-warning">Back</button>
                     </div>
                 </div>
             </section>
+            </div>
+            <div class="three-four column">
+
 
             <section id="location-3-all">
                     <!-- button 3 -->
                 <div id ="location-3" class = "block">
-                    <button class= "location-button button is-medium is-fullwidth is-success is-outlined" id="3">Location 3</button>
+                    <button class= "location-button button is-medium is-fullwidth is-warning" id="l3">Location 3</button>
                 </div>
                     <!-- hidden info 3 -->
-                <div id = "info-3" class="location-info block container">
+                <div id = "info-l3" class="location-info block container">
                     <div class="card">
                         <div class="card-content">
-                            <div class="content route">
-                            <strong>route 3</strong>
+                            <div class="content route" id="r3">
+                            <strong>Departure Times</strong>
                             </div>
                                 <div class="level card block">
-                                    <div class="container content direction  block" >
+                                    <div class="container content direction" >
                                         <u>West-Bound</u> 
-                                        <p class = "time of arrival">time of arrival 1</p>
-                                        <p class = "time of arrival">time of arrival 2</p>
-                                        <p class = "time of arrival">time of arrival 3</p>
+                                        <p id = "time-of-arrival-12">time of arrival 1</p>
+                                        <p id = "time-of-arrival-13">time of arrival 2</p>
+                                        <p id = "time-of-arrival-14">time of arrival 3</p>
                                     </div>
 
-                                    <div class="container content direction  block ">
+                                    <div class="container content direction ">
                                         <u>East-Bound</u> 
-                                        <p class = "time of arrival">time of arrival 1</p>
-                                        <p class = "time of arrival">time of arrival 2</p>
-                                        <p class = "time of arrival">time of arrival 3</p>
+                                        <p id = "time-of-arrival-15">time of arrival 1</p>
+                                        <p id = "time-of-arrival-16">time of arrival 2</p>
+                                        <p id = "time-of-arrival-17">time of arrival 3</p>
                                     </div>
                                 </div>
                         </div>
 
-                        <button class="back-button card-footer-item button is-medium is-fullwidth is-danger">Back</button>
+                        <button class="back-button card-footer-item button is-medium is-fullwidth is-warning">Back</button>
                     </div>
                 </div>
             </section>
@@ -137,39 +153,39 @@
             <section id="location-4-all">
                     <!-- button 3 -->
                 <div id ="location-4" class = "block">
-                    <button class= "location-button button is-medium is-fullwidth is-success is-outlined" id="4">Location 4</button>
+                    <button class= "location-button button is-medium is-fullwidth is-warning" id="l4">Location 4</button>
                 </div>
                     <!-- hidden info 4 -->
-                <div id = "info-4" class="location-info block container">
+                <div id = "info-l4" class="location-info block container">
                     <div class="card">
                         <div class="card-content">
-                            <div class="content route">
-                            <strong>route 4</strong>
+                            <div class="content route" id="r4">
+                            <strong>Departure Times</strong>
                             </div>
                                 <div class="level card block">
-                                    <div class="container content direction  block" >
+                                    <div class="container content direction" >
                                         <u>West-Bound</u> 
-                                        <p class = "time of arrival">time of arrival 1</p>
-                                        <p class = "time of arrival">time of arrival 2</p>
-                                        <p class = "time of arrival">time of arrival 3</p>
+                                        <p id = "time-of-arrival-18">time of arrival 1</p>
+                                        <p id = "time-of-arrival-19">time of arrival 2</p>
+                                        <p id = "time-of-arrival-20">time of arrival 3</p>
                                     </div>
 
-                                    <div class="container content direction  block ">
+                                    <div class="container content direction ">
                                         <u>East-Bound</u> 
-                                        <p class = "time of arrival">time of arrival 1</p>
-                                        <p class = "time of arrival">time of arrival 2</p>
-                                        <p class = "time of arrival">time of arrival 3</p>
+                                        <p id = "time-of-arrival-21">time of arrival 1</p>
+                                        <p id = "time-of-arrival-22">time of arrival 2</p>
+                                        <p id = "time-of-arrival-23">time of arrival 3</p>
                                     </div>
                                 </div>
                         </div>
 
-                        <button class="back-button card-footer-item button is-medium is-fullwidth is-danger">Back</button>
+                        <button class="back-button card-footer-item button is-medium is-fullwidth is-warning">Back</button>
                     </div>
                 </div>
             </section>
-
-        </section>
-    </container>
+            </div>
+        </div>
+    </section>
    
     <!-- jquery links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

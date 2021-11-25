@@ -1,14 +1,42 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"; 
 
-:root {
-    --primary-color: red;
+html {
+    height: 100%;
+  }
+  
+  body {
+      background-color:#7a0019 ;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: transparent;
+  } 
+  .button.is-warning {
+    background-color: #fc3;
+  }
+
+.navbar-item {
+  color:#fc3;
+  font-size:1.5rem ;
+  }
+
+nav {
+    background-color: #7a0019;
+}
+.navbar{
+    background-color:#7a0019;
 }
 
 main {
     text-align: center;
     font-size: 25px;
 }
-
+.crimson {
+    color: #7a0019;
+}
+.yellow {
+    color:#fc3;
+}
 section {
     text-align: center;
 }
@@ -16,5 +44,13 @@ section {
 .location-info {
     display:none;
 }
+.direction {
+    margin: 1.5rem;
+}
 
+.no-block-margin {
+    margin-bottom: 0rem;
+}
  
+
+
