@@ -49,7 +49,7 @@ var consolidateTransit = function(locationNumber, stopNumber1, stopNumber2) {
 
 // Find the city
 function findCity(city) {
-    var locationUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=b7609117c1b58fc397022fe7414e5f44`;
+    var locationUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=48b311c4f19922ba7960ce06e7fd7ee4`;
     
     fetch(locationUrl).then(function(response) {
         if (response.ok) {
